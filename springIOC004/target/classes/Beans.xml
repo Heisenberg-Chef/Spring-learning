@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="user" class="com.qi.pojo.User">
+        <constructor-arg name="name" value="Heisenberg"/>
+    </bean>
+    <bean id="student" class="com.qi.pojo.student">
+<!--        普通注入-->
+        <property name="name" value="Ray"/>
+<!--        Bean注入-->
+        <property name="address" ref="Address"/>
+<!--数组注入-->
+        <property name="books">
+            <array>
+                <value>西游记</value>
+                <value>三国演义</value>
+                <value>冰与火之歌</value>
+            </array>
+        </property>
+
+<!--        list注入-->
+        <property name="hobbies">
+            <list>
+                <value>打游戏</value>
+                <value>听歌</value>
+                <value>打篮球</value>
+            </list>
+        </property>
+
+<!--        map注入-->
+        <property name="card">
+            <map>
+                <entry key="身份证" value="1111"></entry>
+                <entry key="银行卡" value="1111"></entry>
+            </map>
+        </property>
+
+<!--        set注入-->
+        <property name="game">
+            <set>
+                <value>wow</value>
+                <value>coc</value>
+                <value>lol</value>
+            </set>
+        </property>
+<!--        null注入,与空字符串不一样.这是一个null空值-->
+        <property name="wifi" >
+            <null></null>
+        </property>
+<!--        配置文件注入-->
+        <property name="info">
+            <props>
+                <prop key="driver">jdbc</prop>
+                <prop key="database">mysql</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean name="Address" class="com.qi.pojo.Address">
+        <property name="city" value="beijing"></property>
+        <property name="district" value="朝阳"></property>
+    </bean>
+</beans>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="Address" class="com.qi.Dao.Address">
+        <constructor-arg name="address" value="北京朝阳"></constructor-arg>
+    </bean>
+
+    <bean name="student" class="com.qi.Dao.student" scope="prototype">
+<!--        1.普通value注入-->
+        <property name="name" value="Heisenberg"></property>
+<!--        2.数组注入-->
+        <property name="address" ref="Address"></property>
+<!--        数组注入-->
+        <property name="books">
+            <array>
+                <value>西游记</value>
+                <value>水浒传</value>
+                <value>三国演义</value>
+                <value>红楼梦</value>
+            </array>
+        </property>
+<!--        list注入-->
+        <property name="hobbys">
+            <list>
+                <value>跑步</value>
+                <value>魔兽</value>
+            </list>
+        </property>
+
+<!--        map注入-->
+        <property name="card">
+            <map>
+                <entry key="身份证" value="110"></entry>
+                <entry key="银行卡" value="12345"></entry>
+            </map>
+        </property>
+<!--        set-->
+        <property name="games">
+            <set>
+                <value>LOL</value>
+                <value>WOW</value>
+                <value>COC</value>
+                <value>LOL</value>
+            </set>
+        </property>
+<!--        null and empty-->
+        <property name="wife">
+            <null></null>
+        </property>
+<!--        properties-->
+        <property name="info">
+            <props>
+                <prop key="admin">root</prop>
+                <prop key="key">Ray19930122</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>
